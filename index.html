@@ -57,7 +57,7 @@
     .cta-btn:hover {
       background: #174ec8;
     }
-    .benefits, .testimonial, .como-funciona, .form-section, .confianza, .faq, footer {
+    .benefits, .testimonial, .como-funciona, .form-section, .confianza, .faq {
       max-width: 650px;
       margin: 32px auto;
       padding: 20px;
@@ -162,27 +162,38 @@
       margin-top: 2px;
       padding-left: 2px;
     }
+    /* --- FOOTER NUEVO --- */
     footer {
-      background: #e3e8ee;
-      color: #444;
+      background: #174ec8;
+      color: #fff;
       text-align: center;
-      font-size: .93rem;
-      padding: 18px 8px;
+      font-size: 1.02rem;
+      padding: 32px 8px 26px 8px;
       border-radius: 0;
-      margin-top: 32px;
-      box-shadow: none;
+      margin-top: 48px;
+      box-shadow: 0 -3px 14px #0001;
+      border-top: 4px solid #246efe;
+      letter-spacing: 0.04em;
+    }
+    .footer-links {
+      margin-top: 10px;
+      display: inline-block;
     }
     .footer-links a {
-      color: #246efe;
-      margin: 0 7px;
-      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      margin: 0 9px;
+      text-decoration: underline;
+      opacity: .93;
+      transition: color .15s;
     }
-    .footer-links a:hover{ text-decoration: underline;}
+    .footer-links a:hover { color: #eaf3ff; }
     @media (max-width: 670px) {
       .benefits, .form-section, .testimonial, .como-funciona, .confianza, .faq {padding: 13px;}
       .hero-img {max-width: 97vw;}
       .logo {max-width: 68px;}
       iframe { min-height: 490px;}
+      footer { padding: 26px 6px 20px 6px; font-size: .98rem;}
     }
   </style>
 </head>
@@ -222,7 +233,7 @@
 
   <section class="confianza">
     <b>+20 equipos ya confían en TurnosPro</b>
-    <div style="font-size:.8rem; color:#777;">¡Únete hoy!</div>
+    <div style="font-size:.8rem; color:#bbb;">¡Únete hoy!</div>
   </section>
 
   <section class="form-section" id="formulario">
