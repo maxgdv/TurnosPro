@@ -17,7 +17,7 @@
       color: #222;
     }
     header {
-      background: #174ec8; /* nuevo azul más suave */
+      background: #174ec8;
       color: #fff;
       padding: 30px 10px 18px 10px;
       text-align: center;
@@ -188,12 +188,23 @@
       transition: color .15s;
     }
     .footer-links a:hover { color: #eaf3ff; }
-    @media (max-width: 670px) {
-      .benefits, .form-section, .testimonial, .como-funciona, .confianza, .faq {padding: 13px;}
-      .hero-img {max-width: 97vw;}
-      .logo {max-width: 68px;}
-      iframe { min-height: 490px;}
-      footer { padding: 26px 6px 20px 6px; font-size: .98rem;}
+    #legal-modal {
+      display:none;
+      position:fixed;
+      left:0;top:0;width:100vw;height:100vh;
+      background:#0007;
+      align-items:center;justify-content:center;z-index:99;
+    }
+    #legal-modal .modal-box {
+      background:#fff;color:#333;
+      max-width:480px;padding:30px;
+      border-radius:16px;box-shadow:0 8px 24px #246efe33;
+    }
+    #legal-modal .modal-box h3 {margin-top:0;}
+    #legal-modal .close-btn {
+      display:block;margin-top:18px;background:#174ec8;color:#fff;
+      border:none;border-radius:7px;padding:7px 22px;
+      cursor:pointer;font-weight:bold;
     }
   </style>
 </head>
@@ -262,12 +273,25 @@
   </section>
 
   <footer>
-    &copy; 2025 TurnosPro | Contacto: info@turnospro.com <br>
+    &copy; 2025 TurnosPro | Contacto: <a href="mailto:byveria@yahoo.com">byveria@yahoo.com</a> <br>
     <span class="footer-links">
-      <a target="_blank" href="https://www.linkedin.com/">LinkedIn</a> |
-      <a href="#">Aviso legal</a>
+      <a href="#" onclick="document.getElementById('legal-modal').style.display='flex';return false;">Aviso legal</a>
     </span>
   </footer>
+
+  <!-- Modal aviso legal -->
+  <div id="legal-modal" onclick="if(event.target===this)this.style.display='none';">
+    <div class="modal-box">
+      <h3>Aviso Legal</h3>
+      <p>
+      TurnosPro está desarrollado por el titular <b>Manuel Garcia de Veas Gimena</b>, con correo de contacto <a href="mailto:byveria@yahoo.com">byveria@yahoo.com</a>. <br><br>
+      Todos los contenidos, textos e imágenes son propiedad del titular o se usan bajo licencias permitidas. <br>
+      Los datos recogidos se emplean únicamente para atender la solicitud de acceso beta, conforme a la normativa vigente de privacidad y protección de datos en España.<br>
+      No se ceden ni venden datos personales a terceros. Para cualquier información legal o para ejercer derechos de acceso, rectificación, cancelación u oposición, contacte por email.
+      </p>
+      <button class="close-btn" onclick="document.getElementById('legal-modal').style.display='none';">Cerrar</button>
+    </div>
+  </div>
 
   <script>
     window.onload = () => document.body.classList.add('loaded');
