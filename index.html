@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>TurnosPro - Gestión de Turnos y Equipos</title>
+  <meta name="description" content="Automatiza turnos y cuadrantes, controla presencias y ausencias, y mejora la productividad de tu equipo con TurnosPro. Solicita acceso beta.">
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -15,48 +16,95 @@
     header {
       background: #246efe;
       color: #fff;
-      padding: 40px 20px 20px 20px;
+      padding: 30px 10px 18px 10px;
       text-align: center;
+      position: relative;
     }
-    header h1 {
-      font-size: 2.1rem;
-      margin-bottom: 10px;
+    .logo {
+      max-width: 90px;
+      margin-bottom: 12px;
+      margin-top: 10px;
     }
-    header p {
-      font-size: 1.1rem;
-      margin-bottom: 0;
+    .hero-img {
+      max-width: 320px;
+      width: 90%;
+      box-shadow: 0 8px 40px #246efe33;
+      border-radius: 20px;
+      margin: 30px auto 0 auto;
+      display: block;
+      background: #fff;
     }
-    .benefits, .form-section, .testimonial, footer {
-      max-width: 600px;
+    .cta-btn {
+      display: inline-block;
+      background: #246efe;
+      color: #fff;
+      padding: 16px 32px;
+      margin: 18px auto 12px auto;
+      border-radius: 30px;
+      font-size: 1.17rem;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 7px #0001;
+      transition: background .2s;
+      border: none;
+      cursor: pointer;
+    }
+    .cta-btn:hover {
+      background: #174ec8;
+    }
+    .benefits, .testimonial, .como-funciona, .form-section, .confianza, footer {
+      max-width: 650px;
       margin: 32px auto;
       padding: 20px;
       background: #fff;
       border-radius: 15px;
       box-shadow: 0 2px 9px #00000011;
     }
-    .benefits ul {
+    h1 {
+      font-size: 2.1rem;
+      margin-bottom: 5px;
+    }
+    .main-subtitle {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+    .benefits ul, .como-funciona ol {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
     .benefits li::before {
       content: "✓ ";
       color: #246efe;
       font-weight: bold;
     }
-    .form-section {
+    .benefits li {
+      margin-bottom: 7px;
+      font-size: 1.09rem;
+    }
+    .como-funciona {
       background: #eef5ff;
     }
-    .form-section h2 {
-      margin-top: 0;
-      font-size: 1.3rem;
+    .como-funciona ol {
+      counter-reset: paso;
     }
-    iframe {
-      width: 100%;
-      min-height: 700px;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      background: #fff;
+    .como-funciona li {
+      counter-increment: paso;
+      margin-bottom: 15px;
+      padding-left: 13px;
+      font-size: 1.03rem;
+      position: relative;
+    }
+    .como-funciona li::before {
+      content: counter(paso) ".";
+      color: #246efe;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    .form-section {
+      background: #eaf3ff;
     }
     .testimonial {
       font-style: italic;
@@ -64,34 +112,59 @@
       background: #eaf3ff;
       margin-top: 18px;
     }
+    .confianza {
+      text-align: center;
+      background: #fff;
+      border: 2px dashed #e3e8ee;
+      color: #444;
+      margin-bottom: 34px;
+      margin-top: -4px;
+      font-size: 1rem;
+    }
+    iframe {
+      width: 100%;
+      min-height: 670px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      background: #fff;
+    }
     footer {
       background: #e3e8ee;
       color: #444;
       text-align: center;
-      font-size: .9rem;
-      padding: 16px;
+      font-size: .93rem;
+      padding: 18px 8px;
       border-radius: 0;
       margin-top: 32px;
       box-shadow: none;
     }
-    @media (max-width: 650px) {
-      .benefits, .form-section, .testimonial {
-        padding: 14px;
-      }
-      iframe {
-        min-height: 650px;
-      }
+    .footer-links a {
+      color: #246efe;
+      margin: 0 7px;
+      text-decoration: none;
+    }
+    .footer-links a:hover{ text-decoration: underline;}
+    @media (max-width: 670px) {
+      .benefits, .form-section, .testimonial, .como-funciona, .confianza {padding: 13px;}
+      .hero-img {max-width: 97vw;}
+      .logo {max-width: 68px;}
+      iframe { min-height: 490px;}
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>TurnosPro: Optimiza la gestión de turnos y equipos</h1>
-    <p>Organiza rotaciones y el trabajo de tu equipo con sencillez y profesionalidad.</p>
+    <img src="logo_turnospro.png" alt="Logo TurnosPro" class="logo">
+    <h1>TurnosPro: gestión inteligente de turnos y equipos</h1>
+    <div class="main-subtitle">Automatiza cuadrantes, controla presencias y mejora la productividad de tu empresa</div>
+    <img src="hero_turnospro.png" alt="Mockup TurnosPro" class="hero-img">
+    <a href="#formulario" class="cta-btn">¡Solicita acceso beta ahora!</a>
   </header>
 
   <section class="benefits">
+    <h2>¿Por qué TurnosPro?</h2>
     <ul>
       <li>Automatiza la creación y asignación de turnos y reemplazos</li>
       <li>Controla ausencias, vacaciones y presencias en tiempo real</li>
@@ -101,12 +174,26 @@
     </ul>
   </section>
 
+  <section class="como-funciona">
+    <h2>¿Cómo funciona?</h2>
+    <ol>
+      <li><b>Importa o crea tu equipo</b> en segundos</li>
+      <li><b>Define reglas y preferencias de turnos</b> de manera visual</li>
+      <li><b>Obtén cuadrantes y reportes automáticos</b> listos para usar</li>
+    </ol>
+  </section>
+
   <section class="testimonial">
     “Con TurnosPro he reducido los errores y las horas dedicadas al cuadrante semanal. ¡Muy recomendable!”  
     <br><small>— Jefe de equipo, empresa logística</small>
   </section>
 
-  <section class="form-section">
+  <section class="confianza">
+    <b>+20 equipos ya confían en TurnosPro</b>
+    <div style="font-size:.8rem; color:#777;">¡Únete hoy!</div>
+  </section>
+
+  <section class="form-section" id="formulario">
     <h2>Solicita acceso beta o más información:</h2>
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScaIIzQ1fGLz4Es7fvMchW158Sigqv2xN-eB4Nj9IpDeZhd5Q/viewform?embedded=true"
       frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
@@ -114,7 +201,11 @@
   </section>
 
   <footer>
-    &copy; 2025 TurnosPro | Contacto: info@turnospro.com | LinkedIn | Aviso legal
+    &copy; 2025 TurnosPro | Contacto: info@turnospro.com <br>
+    <span class="footer-links">
+      <a target="_blank" href="https://www.linkedin.com/">LinkedIn</a> |
+      <a href="#">Aviso legal</a>
+    </span>
   </footer>
 
 </body>
