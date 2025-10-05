@@ -1,310 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>TurnosPro - Gestión de Turnos y Equipos</title>
-  <meta name="description" content="Automatiza turnos y cuadrantes, controla presencias y ausencias, y mejora la productividad de tu equipo con TurnosPro. Solicita acceso beta.">
-  <meta property="og:image" content="https://maxgdv.github.io/TurnosPro/hero_turnospro.png">
-  <meta name="twitter:image" content="https://maxgdv.github.io/TurnosPro/hero_turnospro.png">
-  <link rel="icon" type="image/png" href="logo_turnospro.png">
-  <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f6f8fa;
-      color: #222;
-    }
-    header {
-      background: #174ec8;
-      color: #fff;
-      padding: 30px 10px 18px 10px;
-      text-align: center;
-      position: relative;
-    }
-    .logo {
-      max-width: 90px;
-      margin-bottom: 12px;
-      margin-top: 10px;
-      border-radius: 16px;
-      box-shadow: 0 3px 12px #246efe22;
-    }
-    .hero-img {
-      max-width: 320px;
-      width: 90%;
-      box-shadow: 0 8px 40px #246efe33;
-      border-radius: 20px;
-      margin: 30px auto 0 auto;
-      display: block;
-      background: #fff;
-    }
-    .cta-btn {
-      display: inline-block;
-      background: #246efe;
-      color: #fff;
-      padding: 16px 32px;
-      margin: 18px auto 12px auto;
-      border-radius: 30px;
-      font-size: 1.17rem;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 2px 7px #0001;
-      transition: background .2s;
-      border: none;
-      cursor: pointer;
-    }
-    .cta-btn:hover {
-      background: #174ec8;
-    }
-    .benefits, .testimonial, .como-funciona, .form-section, .confianza, .faq {
-      max-width: 650px;
-      margin: 32px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 2px 9px #00000011;
-      opacity: 0; transform: translateY(30px);
-      transition: all .8s cubic-bezier(.4,0,.2,1);
-    }
-    body.loaded .benefits, 
-    body.loaded .testimonial,
-    body.loaded .como-funciona,
-    body.loaded .form-section,
-    body.loaded .confianza,
-    body.loaded .faq,
-    body.loaded .hero-img
-    { opacity:1; transform:none;}
-    h1 {
-      font-size: 2.1rem;
-      margin-bottom: 5px;
-    }
-    .main-subtitle {
-      font-size: 1.18rem;
-      margin-bottom: 10px;
-      font-weight: 400;
-    }
-    .benefits ul, .como-funciona ol, .faq-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .benefits li::before {
-      content: "✓ ";
-      color: #246efe;
-      font-weight: bold;
-    }
-    .benefits li {
-      margin-bottom: 7px;
-      font-size: 1.09rem;
-    }
-    .como-funciona {
-      background: #eef5ff;
-    }
-    .como-funciona ol {
-      counter-reset: paso;
-    }
-    .como-funciona li {
-      counter-increment: paso;
-      margin-bottom: 15px;
-      padding-left: 13px;
-      font-size: 1.03rem;
-      position: relative;
-    }
-    .como-funciona li::before {
-      content: counter(paso) ".";
-      color: #246efe;
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-    .form-section {
-      background: #eaf3ff;
-    }
-    .testimonial {
-      font-style: italic;
-      border-left: 4px solid #246efe;
-      background: #eaf3ff;
-      margin-top: 18px;
-    }
-    .confianza {
-      text-align: center;
-      background: #fff;
-      border: 2px dashed #e3e8ee;
-      color: #444;
-      margin-bottom: 34px;
-      margin-top: -4px;
-      font-size: 1rem;
-    }
-    iframe {
-      width: 100%;
-      min-height: 670px;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      background: #fff;
-    }
-    .faq {
-      background: #f8faff;
-    }
-    .faq-list li {
-      padding: 10px 0 7px 0;
-      border-bottom: 1px solid #e3e8ee;
-    }
-    .faq-list li:last-child { border-bottom: none; }
-    .faq-q {
-      font-weight: bold;
-      color: #246efe;
-    }
-    .faq-a {
-      display: block;
-      color: #444;
-      margin-top: 2px;
-      padding-left: 2px;
-    }
-    /* --- FOOTER NUEVO --- */
-    footer {
-      background: #174ec8;
-      color: #fff;
-      text-align: center;
-      font-size: 1.02rem;
-      padding: 32px 8px 26px 8px;
-      border-radius: 0;
-      margin-top: 48px;
-      box-shadow: 0 -3px 14px #0001;
-      border-top: 4px solid #246efe;
-      letter-spacing: 0.04em;
-    }
-    .footer-links {
-      margin-top: 10px;
-      display: inline-block;
-    }
-    .footer-links a {
-      color: #fff;
-      font-weight: 500;
-      margin: 0 9px;
-      text-decoration: underline;
-      opacity: .93;
-      transition: color .15s;
-    }
-    .footer-links a:hover { color: #eaf3ff; }
-    footer a[href^="mailto:"] {
-  color: #fff !important;
-  font-weight: bold;
-  text-decoration: underline;
-  opacity: 1;
-}
-footer a[href^="mailto:"]:hover {
-  color: #eaf3ff !important;
-}
-
-    #legal-modal {
-      display:none;
-      position:fixed;
-      left:0;top:0;width:100vw;height:100vh;
-      background:#0007;
-      align-items:center;justify-content:center;z-index:99;
-    }
-    #legal-modal .modal-box {
-      background:#fff;color:#333;
-      max-width:480px;padding:30px;
-      border-radius:16px;box-shadow:0 8px 24px #246efe33;
-    }
-    #legal-modal .modal-box h3 {margin-top:0;}
-    #legal-modal .close-btn {
-      display:block;margin-top:18px;background:#174ec8;color:#fff;
-      border:none;border-radius:7px;padding:7px 22px;
-      cursor:pointer;font-weight:bold;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="logo_turnospro.png" alt="Logo TurnosPro" class="logo">
-    <h1>TurnosPro: gestión inteligente de turnos y equipos</h1>
-    <div class="main-subtitle">Automatiza cuadrantes, controla presencias y mejora la productividad de tu empresa</div>
-    <img src="hero_turnospro.png" alt="Mockup TurnosPro" class="hero-img">
-    <a href="#formulario" class="cta-btn">¡Solicita acceso beta ahora!</a>
-  </header>
-
-  <section class="benefits">
-    <h2>¿Por qué TurnosPro?</h2>
-    <ul>
-      <li>Automatiza la creación y asignación de turnos y reemplazos</li>
-      <li>Controla ausencias, vacaciones y presencias en tiempo real</li>
-      <li>Informes de actividad y análisis de productividad</li>
-      <li>Acceso multiusuario y soporte multidispositivo</li>
-      <li>Integración sencilla con otras herramientas empresariales</li>
-    </ul>
-  </section>
-
-  <section class="como-funciona">
-    <h2>¿Cómo funciona?</h2>
-    <ol>
-      <li><b>Importa o crea tu equipo</b> en segundos</li>
-      <li><b>Define reglas y preferencias de turnos</b> de manera visual</li>
-      <li><b>Obtén cuadrantes y reportes automáticos</b> listos para usar</li>
-    </ol>
-  </section>
-
-  <section class="testimonial">
-    “Con TurnosPro he reducido los errores y las horas dedicadas al cuadrante semanal. ¡Muy recomendable!”  
-    <br><small>— Jefe de equipo, empresa logística</small>
-  </section>
-
-  <section class="confianza">
-    <b>+20 equipos ya confían en TurnosPro</b>
-    <div style="font-size:.8rem; color:#bbb;">¡Únete hoy!</div>
-  </section>
-
-  <section class="form-section" id="formulario">
-    <h2>Solicita acceso beta o más información:</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScaIIzQ1fGLz4Es7fvMchW158Sigqv2xN-eB4Nj9IpDeZhd5Q/viewform?embedded=true"
-      frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-    <small>Nunca compartiremos tu información con terceros.</small>
-  </section>
-
-  <section class="faq">
-    <h2>Preguntas frecuentes</h2>
-    <ul class="faq-list">
-      <li>
-        <span class="faq-q">¿Puedo usar TurnosPro desde móvil?</span>
-        <span class="faq-a">¡Sí! La plataforma es totalmente responsive y funciona desde cualquier dispositivo.</span>
-      </li>
-      <li>
-        <span class="faq-q">¿Hay periodo de prueba gratuito?</span>
-        <span class="faq-a">Puedes solicitar acceso beta y probar sin compromiso durante la fase inicial.</span>
-      </li>
-      <li>
-        <span class="faq-q">¿Qué datos recopiláis?</span>
-        <span class="faq-a">Solo los necesarios para gestionar tu equipo y cuadrantes. No compartimos tu información con terceros.</span>
-      </li>
-    </ul>
-  </section>
-
-  <footer>
-    &copy; 2025 TurnosPro | Contacto: <a href="mailto:byveria@yahoo.com">byveria@yahoo.com</a> <br>
-    <span class="footer-links">
-      <a href="#" onclick="document.getElementById('legal-modal').style.display='flex';return false;">Aviso legal</a>
-    </span>
-  </footer>
-
-  <!-- Modal aviso legal -->
-  <div id="legal-modal" onclick="if(event.target===this)this.style.display='none';">
-    <div class="modal-box">
-      <h3>Aviso Legal</h3>
-      <p>
-      TurnosPro está desarrollado por el titular de la web, con correo de contacto <a href="mailto:byveria@yahoo.com">byveria@yahoo.com</a>. <br><br>
-      Todos los contenidos, textos e imágenes son propiedad del titular o se usan bajo licencias permitidas. <br>
-      Los datos recogidos se emplean únicamente para atender la solicitud de acceso beta, conforme a la normativa vigente de privacidad y protección de datos en España.<br>
-      No se ceden ni venden datos personales a terceros. Para cualquier información legal o para ejercer derechos de acceso, rectificación, cancelación u oposición, contacte por email.
-      </p>
-      <button class="close-btn" onclick="document.getElementById('legal-modal').style.display='none';">Cerrar</button>
-    </div>
-  </div>
-
-  <script>
-    window.onload = () => document.body.classList.add('loaded');
-  </script>
-</body>
-</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurnosPro - Evita multas de €10,000 por empleado</title>
+    <meta name="description" content="La única app de control horario 100% adaptada a restaurantes españoles. Garantiza compliance con la nueva normativa 2025.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #dc2626;
+            --secondary-color: #16a34a;
+            --warning-color: #f59e0b;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"/></svg>') no-repeat;
+            background-size: cover;
+        }
+        
+        .btn-primary {
+            background-color: var(--warning-color);
+            border-color: var(--warning-color);
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #d97706;
+            border-color: #d97706;
+            transform: translateY(-2px);
+        }
+        
+        .problem-section {
+            background: linear-gradient(45deg, #fef3c7 0%, #fed7aa 100%);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .problem-item {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .solution-item {
+            color: var(--secondary-color);
+            font-
