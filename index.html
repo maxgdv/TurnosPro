@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>TurnosPro - Gestión de Turnos y Equipos</title>
   <meta name="description" content="Automatiza turnos y cuadrantes, controla presencias y ausencias, y mejora la productividad de tu equipo con TurnosPro. Solicita acceso beta.">
+  <meta property="og:image" content="https://maxgdv.github.io/TurnosPro/hero_turnospro.png">
+  <meta name="twitter:image" content="https://maxgdv.github.io/TurnosPro/hero_turnospro.png">
+  <link rel="icon" type="image/png" href="logo_turnospro.png">
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -24,6 +27,8 @@
       max-width: 90px;
       margin-bottom: 12px;
       margin-top: 10px;
+      border-radius: 16px;
+      box-shadow: 0 3px 12px #246efe22;
     }
     .hero-img {
       max-width: 320px;
@@ -52,14 +57,24 @@
     .cta-btn:hover {
       background: #174ec8;
     }
-    .benefits, .testimonial, .como-funciona, .form-section, .confianza, footer {
+    .benefits, .testimonial, .como-funciona, .form-section, .confianza, .faq, footer {
       max-width: 650px;
       margin: 32px auto;
       padding: 20px;
       background: #fff;
       border-radius: 15px;
       box-shadow: 0 2px 9px #00000011;
+      opacity: 0; transform: translateY(30px);
+      transition: all .8s cubic-bezier(.4,0,.2,1);
     }
+    body.loaded .benefits, 
+    body.loaded .testimonial,
+    body.loaded .como-funciona,
+    body.loaded .form-section,
+    body.loaded .confianza,
+    body.loaded .faq,
+    body.loaded .hero-img
+    { opacity:1; transform:none;}
     h1 {
       font-size: 2.1rem;
       margin-bottom: 5px;
@@ -69,7 +84,7 @@
       margin-bottom: 10px;
       font-weight: 400;
     }
-    .benefits ul, .como-funciona ol {
+    .benefits ul, .como-funciona ol, .faq-list {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -129,6 +144,24 @@
       margin-bottom: 12px;
       background: #fff;
     }
+    .faq {
+      background: #f8faff;
+    }
+    .faq-list li {
+      padding: 10px 0 7px 0;
+      border-bottom: 1px solid #e3e8ee;
+    }
+    .faq-list li:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: bold;
+      color: #246efe;
+    }
+    .faq-a {
+      display: block;
+      color: #444;
+      margin-top: 2px;
+      padding-left: 2px;
+    }
     footer {
       background: #e3e8ee;
       color: #444;
@@ -146,7 +179,7 @@
     }
     .footer-links a:hover{ text-decoration: underline;}
     @media (max-width: 670px) {
-      .benefits, .form-section, .testimonial, .como-funciona, .confianza {padding: 13px;}
+      .benefits, .form-section, .testimonial, .como-funciona, .confianza, .faq {padding: 13px;}
       .hero-img {max-width: 97vw;}
       .logo {max-width: 68px;}
       iframe { min-height: 490px;}
@@ -154,7 +187,6 @@
   </style>
 </head>
 <body>
-
   <header>
     <img src="logo_turnospro.png" alt="Logo TurnosPro" class="logo">
     <h1>TurnosPro: gestión inteligente de turnos y equipos</h1>
@@ -200,13 +232,34 @@
     <small>Nunca compartiremos tu información con terceros.</small>
   </section>
 
+  <section class="faq">
+    <h2>Preguntas frecuentes</h2>
+    <ul class="faq-list">
+      <li>
+        <span class="faq-q">¿Puedo usar TurnosPro desde móvil?</span>
+        <span class="faq-a">¡Sí! La plataforma es totalmente responsive y funciona desde cualquier dispositivo.</span>
+      </li>
+      <li>
+        <span class="faq-q">¿Hay periodo de prueba gratuito?</span>
+        <span class="faq-a">Puedes solicitar acceso beta y probar sin compromiso durante la fase inicial.</span>
+      </li>
+      <li>
+        <span class="faq-q">¿Qué datos recopiláis?</span>
+        <span class="faq-a">Solo los necesarios para gestionar tu equipo y cuadrantes. No compartimos tu información con terceros.</span>
+      </li>
+    </ul>
+  </section>
+
   <footer>
-    &copy; 2025 TurnosPro | Contacto: byveria@yahoo.com <br>
+    &copy; 2025 TurnosPro | Contacto: info@turnospro.com <br>
     <span class="footer-links">
       <a target="_blank" href="https://www.linkedin.com/">LinkedIn</a> |
       <a href="#">Aviso legal</a>
     </span>
   </footer>
 
+  <script>
+    window.onload = () => document.body.classList.add('loaded');
+  </script>
 </body>
 </html>
